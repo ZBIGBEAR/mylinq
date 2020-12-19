@@ -56,15 +56,3 @@ func init(){
 		})
 	}
 }
-
-func printStudents(name string, datas []interface{}){
-	fmt.Println(name)
-	for i:=0;i<len(datas);i++{
-		printStudent(datas[i])
-	}
-}
-
-func printStudent(i interface{}){
-	s := i.(Person)
-	fmt.Println(fmt.Sprintf("studentName:%s,age:%d,grade:%s,teacherName:%s", s.Name,s.Age,s.Grade,s.Teacher.Name))
-}
