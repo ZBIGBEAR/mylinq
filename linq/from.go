@@ -7,7 +7,7 @@ func From(datas interface{}) Query{
 	switch src.Kind(){
 	case reflect.Array,reflect.Slice:
 		return Query{
-			Iterator: func() func()(interface{}, bool) {
+			Iterate: func() Iterator {
 				idx :=0
 				count := src.Len()
 				return func()(item interface{}, ok bool) {

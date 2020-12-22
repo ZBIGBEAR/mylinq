@@ -2,7 +2,7 @@ package linq
 
 func (q Query)Order(orderBy func(interface{})float64, asc bool) Query {
 	return Query{
-		Iterator: func() func() (interface{}, bool) {
+		Iterate: func() Iterator {
 			datas := q.order(orderBy, asc)
 			idx :=0
 			count := len(datas)

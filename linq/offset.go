@@ -2,8 +2,8 @@ package linq
 
 func (q Query) Offset(offset int64) Query {
 	return Query{
-		Iterator: func() func() (interface{}, bool) {
-			next := q.Iterator()
+		Iterate: func() Iterator {
+			next := q.Iterate()
 			var index int64 = 0
 			return func() (item interface{}, ok bool) {
 				for item, ok = next(); ok; item, ok = next() {

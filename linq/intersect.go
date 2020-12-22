@@ -2,8 +2,8 @@ package linq
 
 func (q Query)Intersect(intersectQuery Query, intersectBy func(interface{})interface{}) Query {
 	return Query{
-		Iterator: func() func() (interface{}, bool) {
-			next2 := intersectQuery.Iterator()
+		Iterate: func() Iterator {
+			next2 := intersectQuery.Iterate()
 			set := make(map[interface{}]struct{})
 			for item,ok:=next2();ok;item,ok=next2(){
 				k := item
@@ -13,7 +13,7 @@ func (q Query)Intersect(intersectQuery Query, intersectBy func(interface{})inter
 				set[k] = struct{}{}
 			}
 
-			next := q.Iterator()
+			next := q.Iterate()
 			return func() (i interface{}, b bool) {
 				for item,ok:=next();ok;item,ok=next(){
 					k := item

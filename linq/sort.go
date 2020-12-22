@@ -4,7 +4,7 @@ import "sort"
 
 func (q Query) Sort(less func(i,j interface{})bool) Query{
 	return Query{
-		Iterator: func() func() (interface{}, bool) {
+		Iterate: func() Iterator {
 			s := sortDatas{
 				datas:q.Result(),
 				less:less,

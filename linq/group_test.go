@@ -22,7 +22,6 @@ func (f *GroupSuite) TestGroup1(){
 		}
 		return s.Grade
 	})
-	fmt.Println(result)
 	f.Equal(3, len(result))
 	f.Equal(int64(4), result[0].Count)
 	f.Equal(int64(3), result[1].Count)

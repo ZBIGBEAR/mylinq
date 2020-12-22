@@ -6,7 +6,7 @@ func (q Query) Sum(sumFunc func(i interface{})float64) float64{
 	}
 	convertQ:= q.Convert(convert)
 	var sum float64 = 0
-	next := convertQ.Iterator()
+	next := convertQ.Iterate()
 	for item, ok := next(); ok; item, ok = next() {
 		sum += item.(float64)
 	}

@@ -7,7 +7,7 @@ type GroupData struct {
 }
 func (q Query) Group(group func(interface{})interface{}) []GroupData {
 	set := make(map[interface{}]GroupData)
-	next := q.Iterator()
+	next := q.Iterate()
 	for item,ok := next(); ok; item,ok = next(){
 		k := group(item)
 		if _, ok := set[k]; !ok {

@@ -1,5 +1,7 @@
 package linq
 
+type Iterator func()(interface{}, bool)
+
 type Query struct {
-	Iterator func() func()(interface{},bool)
+	Iterate func() Iterator
 }
